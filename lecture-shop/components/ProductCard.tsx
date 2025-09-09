@@ -8,6 +8,7 @@ export default function ProductCard() {
       <ProductTitle />
       <ProductPrice />
       <Image source={require("../assets/rome.jpg")} style={styles.Image} />
+      <Button style={styles.button} title={"Kjøp nå"} />
     </View>
   );
 }
