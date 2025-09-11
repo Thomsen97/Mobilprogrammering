@@ -5,18 +5,21 @@ import { productStyles } from "./styles";
 import ProductName from "./ProductName";
 
 import MyImage from "../assets/rome.jpg";
+import { Product } from "../types";
 
-export const ProductCard = ({
-  product,
-}: {
-  product?: { name?: string; price?: number; description?: string };
-}) => {
+type Props = {
+  product: Product;
+};
+
+export function ProductCard(props: Props) /*(props: { product: Product })*/ {
+  const { product } = props;
+
   return (
     <View style={productStyles.card}>
-      <ProductName name={product?.name} />
-      <ProductPrice price={product?.price} />
+      <ProductName name={product.name} />
+      <ProductPrice price={product.price} />
       <Image source={MyImage} style={productStyles.image} />
       <BuyButton />
     </View>
   );
-};
+}

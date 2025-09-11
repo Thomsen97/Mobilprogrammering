@@ -1,10 +1,7 @@
 import { Text, StyleSheet } from "react-native";
 import { productStyles } from "./styles";
+import { Product } from "../types";
 
-export default function ProductPrice({ price }: { price?: number }) {
-  return (
-    <Text style={productStyles.price}>
-      {price ? `${price} kr.` : "Produktpris"}
-    </Text>
-  );
+export default function ProductPrice({ price }: Pick<Product, "price">) {
+  return <Text style={productStyles.price}>{price}</Text>;
 }

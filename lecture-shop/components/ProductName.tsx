@@ -1,10 +1,7 @@
 import { Text } from "react-native";
 import { productStyles } from "./styles";
+import { Product } from "../types";
 
-interface ProductNameProps {
-  name?: string;
-}
-
-export default function ProductName({ name }: ProductNameProps) {
-  return <Text style={productStyles.title}>{name || "Produktnavn"}</Text>;
+export default function ProductName({ name }: Pick<Product, "name">) {
+  return <Text style={productStyles.title}>{name}</Text>;
 }
