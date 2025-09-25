@@ -1,6 +1,7 @@
 import { type Product } from "./types";
 import ProductList from "./components/ProductList";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { useState } from "react";
 
 const products: Product[] = [
   {
@@ -30,10 +31,26 @@ const products: Product[] = [
 ];
 
 export default function App() {
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
+
+  const handleProductFiltering = (query?: string) => {
+    const isEmptyQuery = !query || query.trim() === "";
+    if (isEmptyQuery) {
+      setFilteredProducts(products);
+      return;
+    }
+    const filtered = products.filter((products) =>
+      products.name.toLowerCase().includes(query.toLowerCase())
+    );
+  };
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1 }}>
-        <ProductList products={products} />
+        <ProductList
+          products={filteredProducts}
+          onProductFiltering={handleProductFiltering}
+        />
       </SafeAreaView>
     </SafeAreaProvider>
   );
