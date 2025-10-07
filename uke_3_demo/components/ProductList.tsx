@@ -5,12 +5,17 @@ import ProductCard from "./ProductCard";
 import { useState } from "react";
 import { TextInput } from "react-native";
 
-export default function ProductList({ products }: { products: Product[];
-  
- }) {
+export default function ProductList({
+  products,
+  onProductFiltering,
+}: {
+  products: Product[];
+  onProductFiltering: (query: string) => void;
+}) {
   const [filter, setFilter] = useState("");
 
   const handleProductFilter = (query: string) => {
+    console.log("Filtering products with query:", query);
     setFilter(query);
     onProductFiltering(query);
   };
