@@ -39,9 +39,19 @@ export default function App() {
       setFilteredProducts(products);
       return;
     }
-    const filtered = products.filter((products) =>
-      products.name.toLowerCase().includes(query.toLowerCase())
+    console.log("Filtering products with query:", query);
+    const filtered = products.filter((product) =>
+      product.name.toLowerCase().includes(query.toLowerCase())
     );
+    setFilteredProducts(filtered);
+    // const filtered = products.filter(({name}) =>
+    //   name.toLowerCase().includes(query.toLowerCase())
+    // );
+    // setFilteredProducts((prevData) =>
+    //   prevData.filter((product) =>
+    //     product.name.toLowerCase().includes(query.toLowerCase())
+    //   )
+    // );
   };
 
   return (

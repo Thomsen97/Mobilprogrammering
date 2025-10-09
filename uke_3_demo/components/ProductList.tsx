@@ -1,9 +1,8 @@
-import { ScrollView } from "react-native";
+import { ScrollView, TextInput } from "react-native";
 
 import type { Product } from "../types";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
-import { TextInput } from "react-native";
 
 export default function ProductList({
   products,
@@ -29,6 +28,14 @@ export default function ProductList({
         placeholder="Filter products..."
         value={filter}
         onChangeText={handleProductFilter}
+        style={{
+          height: 40,
+          borderColor: "gray",
+          borderWidth: 1,
+          borderRadius: 5,
+          paddingHorizontal: 10,
+          marginBottom: 10,
+        }}
       />
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />

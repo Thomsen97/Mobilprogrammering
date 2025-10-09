@@ -42,15 +42,10 @@ const productImageStyles = {
   borderColor: "#002266",
 } as const;
 
-const productSearchStyles = {
-  borderRadius: 4
-} as const;
-
 export const productStyles = StyleSheet.create({
   card: productCardStyles,
   title: productTitleStyles,
   price: productPriceStyles,
   button: productButtonStyles,
   image: productImageStyles,
-  search: productSearchStyles,
 });
